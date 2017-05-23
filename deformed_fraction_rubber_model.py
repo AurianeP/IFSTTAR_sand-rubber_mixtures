@@ -60,22 +60,25 @@ plt.close()
 ################################ Computation ##################################
 ############################################################################"""
 
-for j0 in range(3): #[1]:#: #deux sables
+for j in range(3): #[1]:#: #deux sables
     #*************************************************************************#
     ################################# LOG FILES ###############################
     #*** General log file
-    fid = open(fnam_sand[j0]+'-'+str(j0)+'_logfile.txt','w') #num_trail
-    fid.write('Fitting p0 and F with logarithmic and polynomial derivative method\n')
-    fid.write("Sand:"+fnam_sand[j0]+"\n\n")
+    fid = open(fnam_sand[j]+'-'+str(j)+'_logfile.txt','w') #num_trail
+    lines=['Fitting p0 and F with logarithmic and polynomial derivative method "Polyfit"\n',\
+           'Exponential model with p0 and F fitted with LB sand - application 1 \n',\
+           'Exponential model with the mean p0 and the linear regression of F fitted with LB sand - application 2 \n']
+    fid.write(lines[j])
+    fid.write("Sand:"+fnam_sand[j]+"\n\n")
     #*** Choosing order of polynom log file
-    if j0==0:
-        fid1 = open(fnam_sand[j0]+'_polyorder_logfile.txt','w') #num_trail
-        fid1.write("Sand:"+fnam_sand[j0]+"\n\n")
+    if j==0:
+        fid1 = open(fnam_sand[j]+'_polyorder_logfile.txt','w') #num_trail
+        fid1.write("Sand:"+fnam_sand[j]+"\n\n")
     #*************************************************************************#
     ################################ FIGURES ##################################
     ### Polynomial fit only:
         # Fig 0: polynome et erreur
-        fig=plt.figure(num=0)#num=0+j0*nb_fig)
+        fig=plt.figure(num=0)#num=0+j*nb_fig)
         gs = gridspec.GridSpec(1,3)
         ax01 = fig.add_subplot(gs[:2])
         ax02 = fig.add_subplot(gs[2])
@@ -86,7 +89,7 @@ for j0 in range(3): #[1]:#: #deux sables
             axes.set_xlabel("Pressure $p$ [kPa]")
             axes.set_xlim([50,550])
         # Fig 1:
-        fig1=plt.figure(num=1)#num=1+j0*nb_fig)
+        fig1=plt.figure(num=1)#num=1+j*nb_fig)
         ax1=fig1.add_subplot(111)
         ax1.set_title(r"Logarithm of the derivative of $f-f^{*}$ : $ln(P')$"+'\n'+r'Linear regression giving $p_0$ and $F$')
         ax1.set_ylabel(r"$ln(P')$ / linear regression ")
@@ -98,14 +101,14 @@ for j0 in range(3): #[1]:#: #deux sables
     
     ### Article
     # Fig 2:    
-    fig2=plt.figure()#num=2+j0*nb_fig)
+    fig2=plt.figure()#num=2+j*nb_fig)
     ax2=fig2.add_subplot(111)
     ax2.set_title(r"Exponential model : $f-f^{*} = (F-f^{*})(1-\exp(-\frac{p-p^*}{p_0}))$")
     ax2.set_xlabel("Pression $p$ [kPa]",fontsize=14.0)
     ax2.set_color_cycle(couleur)
     ax2.grid()
     # Fig 3:    
-    fig3,(ax30,ax31)=plt.subplots(2,1,sharex=True)#,num=3+j0*nb_fig)
+    fig3,(ax30,ax31)=plt.subplots(2,1,sharex=True)#,num=3+j*nb_fig)
     for axes in [ax31]:
         axes.set_xlabel("$x_R$ [-]",fontsize=14.0)
         axes.set_xlim([0.0,0.55])
@@ -118,7 +121,7 @@ for j0 in range(3): #[1]:#: #deux sables
     ax30.set_ylim([0.0,0.7])
 
     #Fig 4: 
-    fig4,axarr=plt.subplots(3,1,sharex=True)#,num=4+j0*nb_fig,sharex=True)
+    fig4,axarr=plt.subplots(3,1,sharex=True)#,num=4+j*nb_fig,sharex=True)
     fig4.set_figheight(fig4.get_figheight()*2)
     axarr[-1].set_xlabel(r'Pressure $p$ [kPa]',fontsize=14.0)
     axarr[1].set_ylabel('Void ratios $e$ [-]',fontsize=14.0)
@@ -129,7 +132,7 @@ for j0 in range(3): #[1]:#: #deux sables
 
     #*************************************************************************#
     ####################### LOAD PURE SAND DATA ###############################
-    datap=np.loadtxt(fnam_pure[j0])
+    datap=np.loadtxt(fnam_pure[j])
     p0p = datap[0,0]
     p=datap[1:,0]
     e_void=datap[1:,1]
@@ -138,16 +141,16 @@ for j0 in range(3): #[1]:#: #deux sables
     erreur_m=np.zeros((len(FRi),pnew_length))
     pressure=np.zeros((len(FRi),pnew_length))
     iax4=-1
-    for i0 in range(len(FRi)):#[3]:#
+    for i in range(len(FRi)):#[3]:#
         #*********************************************************************#
         #################### LOAD MIXTURE EXPERIMENTAL DATA ###################        
-        FR=FRi[i0]
+        FR=FRi[i]
         ksi=FR/(1.0-FR)
-        print 'Sand',fnam_sand[j0],'Rubber percentage',FR
+        print 'Sand',fnam_sand[j],'Rubber percentage',FR
         fid.write("\nrubber percentage: "+str(FR*100)+"%"+"\n")
-        if j0==0: fid1.write("\nrubber percentage: "+str(FR*100)+"%"+"\n")
+        if j==0: fid1.write("\nrubber percentage: "+str(FR*100)+"%"+"\n")
         fnam_mixture = ["NWLB100R"+str(int(FR*100))+"C_new_dataexp_ep.txt","NWH100R"+str(int(FR*100))+"C_new_dataexp_ep.txt","NWH100R"+str(int(FR*100))+"C_new_dataexp_ep.txt"]
-        datam=np.loadtxt(fnam_mixture[j0])
+        datam=np.loadtxt(fnam_mixture[j])
         p0m = datam[0,0]
         p_m=datam[1:,0]
         e_void_m=datam[1:,1]
@@ -157,7 +160,7 @@ for j0 in range(3): #[1]:#: #deux sables
         pmin=min(p_m[len(p_m)-1],p[len(p)-1])
         pnew,pnew_step=np.linspace(pmax,pmin,pnew_length,retstep=True)#min(len(p),len(p_m)))
 #        print "mixture",len(p_m),"pure",len(p)
-#        if FR==.10 and j0==0:
+#        if FR==.10 and j==0:
 #            e_void_m=e_void_m-0.003#0.005#+(e_void[0]-e_void_m[0])   
         f=np.zeros(len(pnew))
         df=np.zeros(len(pnew))
@@ -169,9 +172,9 @@ for j0 in range(3): #[1]:#: #deux sables
             e_void_m_new[k]=e_void_m[idx]
             e_void_new[k]=e_void[jdx]
             f[k]=-(e_void_m[idx]-e_void[jdx])/FR
-        for j in range(len(pnew)-1):
-            df[j]=(f[j+1]-f[j])/(pnew[j+1]-pnew[j])
-        n_cut=np.argmin((pnew-[p_cut_LB,p_cut_HS,p_cut_HS][j0])**2)
+        for jj in range(len(pnew)-1):
+            df[jj]=(f[jj+1]-f[jj])/(pnew[jj+1]-pnew[jj])
+        n_cut=np.argmin((pnew-[p_cut_LB,p_cut_HS,p_cut_HS][j])**2)
         n_etoile=n_cut    
         p_etoile=pnew[n_etoile]
         f_etoile=f[n_etoile]
@@ -181,10 +184,10 @@ for j0 in range(3): #[1]:#: #deux sables
 
         #*********************************************************************#
         ########################## SPLINE FIT #################################
-        if j0==0: #LB sand
+        if j==0: #LB sand
             f_data=f[n_cut:]-f_etoile # curve to fit
             a1,d,pnew_log,f_spline,error_spline,\
-            ln_f_spline_prime,ln_f_spline_prime_lin = Polyfit(pnew_cut,f_data,j0,i0,fid,fid1)
+            ln_f_spline_prime,ln_f_spline_prime_lin = Polyfit(pnew_cut,f_data,j,i,fid,fid1)
             print 'Spline fit plotting...'
             ### Fig0:       
             ax01.plot(pnew_cut,f[n_cut:]-f_etoile,'ok',ms=1.5,mfc="w")        
@@ -203,15 +206,17 @@ for j0 in range(3): #[1]:#: #deux sables
         ############## EXPONENTIAL MODEL WITH FITTED PARAMETERS ###############
             p0=-1/a1[0]
             F=f_etoile+p0*np.exp(a1[1]-(p_etoile/p0))
-            p0_matrix[i0,:]=p0
-            F_matrix[i0,:]=F
-        elif j0==1: #HS sand with direct input
-            p0 = p0_matrix[i0,j0]
-            F = F_matrix[i0,j0]
-        elif j0==2:
+            p0_matrix[i,:]=p0
+            F_matrix[i,:]=F
+        elif j==1: #HS sand with direct input
+            p0 = p0_matrix[i,j]
+            F = F_matrix[i,j]
+        elif j==2:
             p0 = p0_matrix[:,0].mean()
             slope, intercept, r_value, p_value, std_err = linregress(FRi,F_matrix[:,0])
-            F = intercept + slope * FRi[i0]
+            F = intercept + slope * FRi[i]
+            p0_matrix[i,j]=p0
+            F_matrix[i,j]=F
         print 'Exponential model'
         f_exp=exp_etendu(x=pnew_cut,p0=p0,F=F,p_etoile=p_etoile,f_etoile=f_etoile)    
         #**** write to log file
@@ -241,13 +246,13 @@ for j0 in range(3): #[1]:#: #deux sables
 				#BOGDAN:
             # emf_model[ii]=(e1*((1-f_model)*ksi+1)-f_model*ksi)/(1+ksi)
 			#*** error
-            erreur_m[i0,ii]=100*abs(emf_model[ii]-em1)/em1
-            erreur_p[i0,ii]=100*abs(epf_model[ii]-e1)/e1
+            erreur_m[i,ii]=100*abs(emf_model[ii]-em1)/em1
+            erreur_p[i,ii]=100*abs(epf_model[ii]-e1)/e1
 #            erreur_m[i2,ii]=abs(emf_model[ii]-em1)
 #            erreur_p[i2,ii]=abs(epf_model[ii]-e1)
-            pressure[i0,ii]=pnew[ii]
-        erreur_m[i0,:n_cut-1]=0.
-        erreur_p[i0,:n_cut-1]=0.0
+            pressure[i,ii]=pnew[ii]
+        erreur_m[i,:n_cut-1]=0.
+        erreur_p[i,:n_cut-1]=0.0
         #*********************************************************************#
         ############################# PLOTS ###################################
         print 'Plotting...'
@@ -255,7 +260,7 @@ for j0 in range(3): #[1]:#: #deux sables
         ax2.plot(pnew,f-f_etoile,'ok',mfc="w",ms=1.5,markevery=20)
         ax2.plot(pnew[n_cut:],f_exp-f_etoile)
         ### Fig4: exponential model vs expe data for void ratio
-        if i0==0 or i0==2 or i0==4:
+        if i==0 or i==2 or i==4:
             iax4+=1
             ax4=axarr[iax4]
             PS,=ax4.plot(p,e_void,'o',mfc='white',mec='k',ms=9.0,markevery=30,alpha=0.7,label=r'$e(x_{R}=0,p)$')
@@ -268,14 +273,14 @@ for j0 in range(3): #[1]:#: #deux sables
             x=[p_etoile,p_etoile]
             y=[ax4.get_ylim()[0],ax4.get_ylim()[1]]
             ax4.plot(x,y,':k',lw=1.0)
-            if i0==0:
+            if i==0:
                 ax4.text(x[0],y[1],r'$p^*$',ha='left',va='top',fontsize=14)
             ax4.text(0.99,0.98,letter.next(),ha='right',va='top',fontsize=18.0,transform=ax4.transAxes)
             ax4.text(0.01,0.1,r'$x_{R}='+str(int(FR*100))+'\%$',ha='left',va='center',fontsize=18.0,transform=ax4.transAxes)
     #        ax4.set_yticks(ax4.get_yticks()[1:-1:2])
     #        ax4.set_yticklabels(['{:.2f}'.format(ytick) for ytick in ax4.get_yticks()],size=16.0)
     #        ax4.set_xticklabels(['{:d}'.format(int(xtick)) for xtick in ax4.get_xticks()],size=16.0)
-            majorLocator   = MultipleLocator([0.01,0.02,0.05,0.05,0.1][i0])
+            majorLocator   = MultipleLocator([0.01,0.02,0.05,0.05,0.1][i])
             majorFormatter = FormatStrFormatter('%.2f')
             ax4.yaxis.set_major_locator(majorLocator)
             ax4.yaxis.set_major_formatter(majorFormatter)
@@ -286,9 +291,11 @@ for j0 in range(3): #[1]:#: #deux sables
     fig4.tight_layout()
     ### Fig3: p0(xR) and F(xR)
     FRa=np.array(FRi)
-    ax30.plot(FRa,F_matrix[:,j0],':sk')
-    if j0==2: #add linear regression
+    if j==2: #add linear regression
+        ax30.plot(FRa,F_matrix[:,0],':s',color='gray')#plot LB in gray
         ax30.plot(FRa,slope*FRa+intercept,'-b')
+    else:
+        ax30.plot(FRa,F_matrix[:,j],':sk')
     ax30.text(0.5,0.9,r'(a)',ha='center',va='center',fontsize=14.0,transform=ax30.transAxes)
     majorLocator   = FixedLocator([0.,0.2,0.4,0.6])
     majorFormatter = FormatStrFormatter('%.1f')
@@ -300,9 +307,11 @@ for j0 in range(3): #[1]:#: #deux sables
 #    ax30.set_yticks([0,0.2,0.4,0.6])
 #    ax30.set_yticklabels(['{:.1f}'.format(ytick) for ytick in ax30.get_yticks()],size=16.0)
 #    ax30.set_yticks([0,0.2,0.4,0.6],minor=True)
-    ax31.plot(FRa,p0_matrix[:,j0],':ok')
-    if j0==2:
+    if j==2:
+        ax31.plot(FRa,p0_matrix[:,0],':o',color='gray')#plot LB in gray
         ax31.plot(FRa,np.ones(FRa.size)*p0,'-b')
+    else:
+        ax31.plot(FRa,p0_matrix[:,j],':ok')
     ax31.text(0.5,0.9,r'(b)',ha='center',va='center',fontsize=14.0,transform=ax31.transAxes)
 #    ax31.set_yticks([200,300,400,500],minor=True)
 #    ax31.set_yticklabels(['{:d}'.format(int(ytick)) for ytick in ax31.get_yticks()],minor=False,size=16.0)
@@ -317,28 +326,28 @@ for j0 in range(3): #[1]:#: #deux sables
     
     ### SAVE FIGS
     ## Polyfit
-    if j0==0:
+    if j==0:
         for figs in [fig,fig1,fig2,fig3,fig4]:#
     #        tight_layout()
-            figs.savefig(".\\figures\\"+fnam_sand[j0]+"_Fig"+str(figs.number)+".png",format='png',bbox_inches='tight',dpi=300.0)
-            figs.savefig(".\\figures\\"+fnam_sand[j0]+"_Fig"+str(figs.number)+".eps",format='eps',bbox_inches='tight',dpi=300.0)
+            figs.savefig(".\\figures\\"+fnam_sand[j]+"_Fig"+str(figs.number)+".png",format='png',bbox_inches='tight',dpi=300.0)
+            figs.savefig(".\\figures\\"+fnam_sand[j]+"_Fig"+str(figs.number)+".eps",format='eps',bbox_inches='tight',dpi=300.0)
     else:
         ## Article
         for fmt in ['png','eps']:
-            fig2.savefig(".\\figures\\"+fnam_sand[j0]+"_Fig2-"+str(j0)+"."+fmt,format=fmt,bbox_inches='tight',dpi=300.0)
-            fig3.savefig(".\\figures\\"+fnam_sand[j0]+"_Fig3-"+str(j0)+"."+fmt,format=fmt,bbox_inches='tight',dpi=300.0)
-            fig4.savefig(".\\figures\\"+fnam_sand[j0]+"_Fig4-"+str(j0)+"."+fmt,format=fmt,bbox_inches='tight',dpi=300.0)
+            fig2.savefig(".\\figures\\"+fnam_sand[j]+"_Fig2-"+str(j)+"."+fmt,format=fmt,bbox_inches='tight',dpi=300.0)
+            fig3.savefig(".\\figures\\"+fnam_sand[j]+"_Fig3-"+str(j)+"."+fmt,format=fmt,bbox_inches='tight',dpi=300.0)
+            fig4.savefig(".\\figures\\"+fnam_sand[j]+"_Fig4-"+str(j)+"."+fmt,format=fmt,bbox_inches='tight',dpi=300.0)
     
 #        plt.close(figs)
-    fid.write('Evolution of p0 with xR:\n'+str(p0_matrix)+'\n')
-    fid.write('Evolution of F with xR:\n'+str(F_matrix)+'\n')
+    fid.write('Evolution of p0 with xR:\n'+str(p0_matrix[:,j])+'\n')
+    fid.write('Evolution of F with xR:\n'+str(F_matrix[:,j])+'\n')
         
     fid.close()
     fid1.close()
     
 #*****************************************************************************#
 ################### FIGURE 2 : ERROR MAP ######################################
-    if j0>0:
+    if j>0:
         erreur_m_list.append(erreur_m)
         erreur_p_list.append(erreur_p)
         pressure_list.append(pressure)
