@@ -8,6 +8,13 @@ import numpy as np
 from scipy.optimize import curve_fit,minimize,leastsq
 
 #==============================================================================
+# Exponential fit
+#==============================================================================
+def exp_etendu(x,p0,F,p_etoile,f_etoile):
+    return (F-f_etoile)*(1-np.exp(-(x-p_etoile)/p0))+f_etoile
+#expe_mod = Model(exp_etendu)
+
+#==============================================================================
 # Error function for polyfit
 #==============================================================================
 def error(a,x,data): # return difference between data and p(x), polynom of x with coefficients a(k)

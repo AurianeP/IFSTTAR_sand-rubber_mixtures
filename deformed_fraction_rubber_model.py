@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 from matplotlib.ticker import FixedLocator,FormatStrFormatter,MultipleLocator
 import itertools
-from deformed_fraction_rubber_model_functions import Polyfit
+from deformed_fraction_rubber_model_functions import Polyfit, exp_etendu
 from scipy.stats import linregress
 
 plt.close('all')
@@ -55,14 +55,6 @@ colormap = plt.cm.Blues
 couleur = [colormap(i) for i in np.linspace(0.5,1.0,len(FRi))]
 nb_fig=5
 plt.close()
-
-""" ###########################################################################
-################################ Functions ####################################
-############################################################################"""
-
-def exp_etendu(x,p0,F,p_etoile,f_etoile):
-    return (F-f_etoile)*(1-np.exp(-(x-p_etoile)/p0))+f_etoile
-#expe_mod = Model(exp_etendu)
 
 """ ###########################################################################
 ################################ Computation ##################################
@@ -126,10 +118,12 @@ for j0 in range(3): #[1]:#: #deux sables
     ax30.set_ylim([0.0,0.7])
 
     #Fig 4: 
-    fig4,axarr=plt.subplots(3,1)#,num=4+j0*nb_fig,sharex=True)
-#    fig4.set_size_inches(8.,12.,forward=True)
+    fig4,axarr=plt.subplots(3,1,sharex=True)#,num=4+j0*nb_fig,sharex=True)
+    fig4.set_figheight(fig4.get_figheight()*2)
     axarr[-1].set_xlabel(r'Pressure $p$ [kPa]',fontsize=14.0)
     axarr[1].set_ylabel('Void ratios $e$ [-]',fontsize=14.0)
+    axarr[-1].set_xticks([0,100,200,300,400,500,600])
+    axarr[-1].set_xticklabels(axarr[-1].get_xticks(),fontsize=13.0)
     for ax in axarr:
         ax.set_color_cycle(couleur)
 
@@ -258,14 +252,14 @@ for j0 in range(3): #[1]:#: #deux sables
         ############################# PLOTS ###################################
         print 'Plotting...'
         ### Fig2:exponential model vs expe data for f-f*
-        ax2.plot(pnew,f-f_etoile,'ok',mfc="w",ms=1.5,markevery=40)
+        ax2.plot(pnew,f-f_etoile,'ok',mfc="w",ms=1.5,markevery=20)
         ax2.plot(pnew[n_cut:],f_exp-f_etoile)
         ### Fig4: exponential model vs expe data for void ratio
         if i0==0 or i0==2 or i0==4:
             iax4+=1
             ax4=axarr[iax4]
-            PS,=ax4.plot(p,e_void,'o',mfc='white',mec='k',ms=9.0,markevery=40,alpha=0.7,label=r'$e(x_{R}=0,p)$')
-            M,=ax4.plot(p_m,e_void_m,'^',mfc='w',mec='k',ms=9.0,markevery=40,alpha=0.7,label=r'$e(x_{R},p)$')
+            PS,=ax4.plot(p,e_void,'o',mfc='white',mec='k',ms=9.0,markevery=30,alpha=0.7,label=r'$e(x_{R}=0,p)$')
+            M,=ax4.plot(p_m,e_void_m,'^',mfc='w',mec='k',ms=9.0,markevery=30,alpha=0.7,label=r'$e(x_{R},p)$')
             
     #        n_cut=0
             pnew_cut=pnew[n_cut:]
@@ -286,8 +280,6 @@ for j0 in range(3): #[1]:#: #deux sables
             ax4.yaxis.set_major_locator(majorLocator)
             ax4.yaxis.set_major_formatter(majorFormatter)
             ax4.set_yticklabels(ax4.get_yticks(),size=13.0)
-            ax4.set_xticks([0,100,200,300,400,500,600])
-            ax4.set_xticklabels(ax4.get_xticks(),fontsize=13.0)
 #    axarr[0].legend(handles=[PS,PS0],loc="upper center",handletextpad=0.2,
 #        ncol=2, mode="expand", borderaxespad=0.5,fontsize=13.0)
 #    axarr[0].legend(handles=[PS,M,PS0],loc="upper right",handletextpad=0.2,borderaxespad=0.5,fontsize=11.0)
