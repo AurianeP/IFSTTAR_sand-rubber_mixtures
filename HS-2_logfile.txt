@@ -1,0 +1,37 @@
+Exponential model with the mean p0 and the linear regression of F fitted with LB sand - application 2 
+Sand:HS
+
+
+rubber percentage: 5.0%
+
+Exponential model : $f-f^{*} = (F-f^{*})(1-\exp(-\frac{p-p^*}{p_0}))$
+p0=-1/a=296.64
+F=0.15
+
+rubber percentage: 10.0%
+
+Exponential model : $f-f^{*} = (F-f^{*})(1-\exp(-\frac{p-p^*}{p_0}))$
+p0=-1/a=296.64
+F=0.20
+
+rubber percentage: 20.0%
+
+Exponential model : $f-f^{*} = (F-f^{*})(1-\exp(-\frac{p-p^*}{p_0}))$
+p0=-1/a=296.64
+F=0.29
+
+rubber percentage: 30.0%
+
+Exponential model : $f-f^{*} = (F-f^{*})(1-\exp(-\frac{p-p^*}{p_0}))$
+p0=-1/a=296.64
+F=0.39
+
+rubber percentage: 50.0%
+
+Exponential model : $f-f^{*} = (F-f^{*})(1-\exp(-\frac{p-p^*}{p_0}))$
+p0=-1/a=296.64
+F=0.58
+Evolution of p0 with xR:
+[ 296.63947028  296.63947028  296.63947028  296.63947028  296.63947028]
+Evolution of F with xR:
+[ 0.15038308  0.19782767  0.29271684  0.38760602  0.57738437]

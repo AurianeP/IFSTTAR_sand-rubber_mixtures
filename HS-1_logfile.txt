@@ -1,0 +1,37 @@
+Exponential model with p0 and F fitted with LB sand - application 1 
+Sand:HS
+
+
+rubber percentage: 5.0%
+
+Exponential model : $f-f^{*} = (F-f^{*})(1-\exp(-\frac{p-p^*}{p_0}))$
+p0=-1/a=227.16
+F=0.10
+
+rubber percentage: 10.0%
+
+Exponential model : $f-f^{*} = (F-f^{*})(1-\exp(-\frac{p-p^*}{p_0}))$
+p0=-1/a=301.40
+F=0.19
+
+rubber percentage: 20.0%
+
+Exponential model : $f-f^{*} = (F-f^{*})(1-\exp(-\frac{p-p^*}{p_0}))$
+p0=-1/a=315.27
+F=0.36
+
+rubber percentage: 30.0%
+
+Exponential model : $f-f^{*} = (F-f^{*})(1-\exp(-\frac{p-p^*}{p_0}))$
+p0=-1/a=333.88
+F=0.41
+
+rubber percentage: 50.0%
+
+Exponential model : $f-f^{*} = (F-f^{*})(1-\exp(-\frac{p-p^*}{p_0}))$
+p0=-1/a=305.49
+F=0.55
+Evolution of p0 with xR:
+[ 227.15823152  301.40168249  315.26538121  333.88047205  305.49158414]
+Evolution of F with xR:
+[ 0.1039463   0.19283322  0.35635894  0.40661451  0.546165  ]

@@ -1,0 +1,211 @@
+Sand:LB
+
+
+rubber percentage: 5.0%
+Polynom of 1-order
+Info about the fit
+optimization success (if flag >0): flag=3
+message:Both actual and predicted relative reductions in the sum of squares
+  are at most 0.000000 and the relative error between two consecutive iterates is at 
+  most 0.000000
+Initial guess:
+a0(k)
+0.00e+00	7.82e-02	
+Optimized results:
+a(k)
+2.23e-04	-1.58e-02	
+Least squared error e1 = 2.17e-02
+Error convergence : de = (e1-e0)/e0 = 2.17e+07
+Polynom of 2-order
+Info about the fit
+optimization success (if flag >0): flag=3
+message:Both actual and predicted relative reductions in the sum of squares
+  are at most 0.000000 and the relative error between two consecutive iterates is at 
+  most 0.000000
+Initial guess:
+a0(k)
+0.00e+00	2.23e-04	-1.58e-02	
+Optimized results:
+a(k)
+-3.97e-07	4.40e-04	-4.16e-02	
+Least squared error e1 = 5.27e-03
+Error convergence : de = (e1-e0)/e0 = 7.57e-01
+Polynom of 3-order
+Info about the fit
+optimization success (if flag >0): flag=1
+message:Both actual and predicted relative reductions in the sum of squares
+  are at most 0.000000
+Initial guess:
+a0(k)
+0.00e+00	-3.97e-07	4.40e-04	-4.16e-02	
+Optimized results:
+a(k)
+-4.90e-10	5.63e-09	3.39e-04	-3.40e-02	
+Least squared error e1 = 5.07e-03
+Error convergence : de = (e1-e0)/e0 = 3.70e-02
+
+rubber percentage: 10.0%
+Polynom of 1-order
+Info about the fit
+optimization success (if flag >0): flag=1
+message:Both actual and predicted relative reductions in the sum of squares
+  are at most 0.000000
+Initial guess:
+a0(k)
+0.00e+00	2.09e-03	
+Optimized results:
+a(k)
+2.20e-04	-4.66e-03	
+Least squared error e1 = 4.55e-02
+Error convergence : de = (e1-e0)/e0 = 4.55e+07
+Polynom of 2-order
+Info about the fit
+optimization success (if flag >0): flag=1
+message:Both actual and predicted relative reductions in the sum of squares
+  are at most 0.000000
+Initial guess:
+a0(k)
+0.00e+00	2.20e-04	-4.66e-03	
+Optimized results:
+a(k)
+-3.86e-07	4.68e-04	-3.82e-02	
+Least squared error e1 = 3.76e-03
+Error convergence : de = (e1-e0)/e0 = 9.17e-01
+Polynom of 3-order
+Info about the fit
+optimization success (if flag >0): flag=1
+message:Both actual and predicted relative reductions in the sum of squares
+  are at most 0.000000
+Initial guess:
+a0(k)
+0.00e+00	-3.86e-07	4.68e-04	-3.82e-02	
+Optimized results:
+a(k)
+6.46e-10	-1.01e-06	6.49e-04	-5.35e-02	
+Least squared error e1 = 2.29e-03
+Error convergence : de = (e1-e0)/e0 = 3.91e-01
+
+rubber percentage: 20.0%
+Polynom of 1-order
+Info about the fit
+optimization success (if flag >0): flag=1
+message:Both actual and predicted relative reductions in the sum of squares
+  are at most 0.000000
+Initial guess:
+a0(k)
+0.00e+00	1.64e-02	
+Optimized results:
+a(k)
+3.82e-04	-1.38e-02	
+Least squared error e1 = 1.18e-01
+Error convergence : de = (e1-e0)/e0 = 1.18e+08
+Polynom of 2-order
+Info about the fit
+optimization success (if flag >0): flag=1
+message:Both actual and predicted relative reductions in the sum of squares
+  are at most 0.000000
+Initial guess:
+a0(k)
+0.00e+00	3.82e-04	-1.38e-02	
+Optimized results:
+a(k)
+-6.37e-07	7.90e-04	-6.90e-02	
+Least squared error e1 = 4.28e-03
+Error convergence : de = (e1-e0)/e0 = 9.64e-01
+Polynom of 3-order
+Info about the fit
+optimization success (if flag >0): flag=1
+message:Both actual and predicted relative reductions in the sum of squares
+  are at most 0.000000
+Initial guess:
+a0(k)
+0.00e+00	-6.37e-07	7.90e-04	-6.90e-02	
+Optimized results:
+a(k)
+1.01e-09	-1.61e-06	1.07e-03	-9.29e-02	
+Least squared error e1 = 6.98e-04
+Error convergence : de = (e1-e0)/e0 = 8.37e-01
+
+rubber percentage: 30.0%
+Polynom of 1-order
+Info about the fit
+optimization success (if flag >0): flag=1
+message:Both actual and predicted relative reductions in the sum of squares
+  are at most 0.000000
+Initial guess:
+a0(k)
+0.00e+00	2.58e-01	
+Optimized results:
+a(k)
+4.74e-04	-1.63e-02	
+Least squared error e1 = 1.62e-01
+Error convergence : de = (e1-e0)/e0 = 1.62e+08
+Polynom of 2-order
+Info about the fit
+optimization success (if flag >0): flag=3
+message:Both actual and predicted relative reductions in the sum of squares
+  are at most 0.000000 and the relative error between two consecutive iterates is at 
+  most 0.000000
+Initial guess:
+a0(k)
+0.00e+00	4.74e-04	-1.63e-02	
+Optimized results:
+a(k)
+-7.45e-07	9.52e-04	-8.08e-02	
+Least squared error e1 = 5.87e-03
+Error convergence : de = (e1-e0)/e0 = 9.64e-01
+Polynom of 3-order
+Info about the fit
+optimization success (if flag >0): flag=1
+message:Both actual and predicted relative reductions in the sum of squares
+  are at most 0.000000
+Initial guess:
+a0(k)
+0.00e+00	-7.45e-07	9.52e-04	-8.08e-02	
+Optimized results:
+a(k)
+1.14e-09	-1.84e-06	1.27e-03	-1.08e-01	
+Least squared error e1 = 1.31e-03
+Error convergence : de = (e1-e0)/e0 = 7.77e-01
+
+rubber percentage: 50.0%
+Polynom of 1-order
+Info about the fit
+optimization success (if flag >0): flag=1
+message:Both actual and predicted relative reductions in the sum of squares
+  are at most 0.000000
+Initial guess:
+a0(k)
+0.00e+00	1.07e-03	
+Optimized results:
+a(k)
+6.10e-04	-1.40e-02	
+Least squared error e1 = 3.29e-01
+Error convergence : de = (e1-e0)/e0 = 3.29e+08
+Polynom of 2-order
+Info about the fit
+optimization success (if flag >0): flag=1
+message:Both actual and predicted relative reductions in the sum of squares
+  are at most 0.000000
+Initial guess:
+a0(k)
+0.00e+00	6.10e-04	-1.40e-02	
+Optimized results:
+a(k)
+-1.06e-06	1.29e-03	-1.06e-01	
+Least squared error e1 = 1.35e-02
+Error convergence : de = (e1-e0)/e0 = 9.59e-01
+Polynom of 3-order
+Info about the fit
+optimization success (if flag >0): flag=3
+message:Both actual and predicted relative reductions in the sum of squares
+  are at most 0.000000 and the relative error between two consecutive iterates is at 
+  most 0.000000
+Initial guess:
+a0(k)
+0.00e+00	-1.06e-06	1.29e-03	-1.06e-01	
+Optimized results:
+a(k)
+1.80e-09	-2.79e-06	1.79e-03	-1.49e-01	
+Least squared error e1 = 2.17e-03
+Error convergence : de = (e1-e0)/e0 = 8.40e-01
