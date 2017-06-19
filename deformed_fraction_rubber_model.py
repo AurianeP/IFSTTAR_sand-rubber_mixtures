@@ -271,7 +271,7 @@ for j in range(3): #[1]:#: #deux sables
 
     #        n_cut=0
             pnew_cut=pnew[n_cut:]
-            PS0,=ax4.plot(pnew_cut,epf_model[n_cut:],'--k',linewidth=1.5,label='$\\tilde{e}(x_{R}=0,p)$')
+#            PS0,=ax4.plot(pnew_cut,epf_model[n_cut:],'--k',linewidth=1.5,label='$\\tilde{e}(x_{R}=0,p)$')
             M0, =ax4.plot(pnew_cut,emf_model[n_cut:],'-k',linewidth=1.5,label='$\\tilde{e}(x_{R},p)$')
             x=[p_etoile,p_etoile]
             y=[ax4.get_ylim()[0],ax4.get_ylim()[1]]
@@ -290,7 +290,7 @@ for j in range(3): #[1]:#: #deux sables
             ax4.set_yticklabels(ax4.get_yticks(),size=13.0)
 #    axarr[0].legend(handles=[PS,PS0],loc="upper center",handletextpad=0.2,
 #        ncol=2, mode="expand", borderaxespad=0.5,fontsize=13.0)
-    axarr[0].legend(handles=[PS,M,PS0,M0],loc="upper right",handletextpad=0.2,borderaxespad=0.5,fontsize=11.0)
+    axarr[0].legend(handles=[PS,M,M0],loc="upper center",handletextpad=0.2,borderaxespad=0.5,fontsize=11.0)
     fig4.tight_layout()
     ### Fig3: p0(xR) and F(xR)
     FRa=np.array(FRi)
