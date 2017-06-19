@@ -10,10 +10,9 @@ polynom derivative coefficients
 -1.47e-09x^2	1.13e-08x^1	
 Linear regression of the log of the derivative : ax+b
 Info about the fit
-optimization success (if flag >0): flag=3
+optimization success (if flag >0): flag=1
 message:Both actual and predicted relative reductions in the sum of squares
-  are at most 0.000000 and the relative error between two consecutive iterates is at 
-  most 0.000000
+  are at most 0.000000
 Results:
 a	b
 -4.40e-03	-7.33e+00
@@ -50,9 +49,8 @@ polynom derivative coefficients
 3.03e-09x^2	-3.22e-06x^1	
 Linear regression of the log of the derivative : ax+b
 Info about the fit
-optimization success (if flag >0): flag=1
-message:Both actual and predicted relative reductions in the sum of squares
-  are at most 0.000000
+optimization success (if flag >0): flag=2
+message:The relative error between two consecutive iterates is at most 0.000000
 Results:
 a	b
 -3.17e-03	-6.89e+00
@@ -69,9 +67,10 @@ polynom derivative coefficients
 3.41e-09x^2	-3.68e-06x^1	
 Linear regression of the log of the derivative : ax+b
 Info about the fit
-optimization success (if flag >0): flag=1
+optimization success (if flag >0): flag=3
 message:Both actual and predicted relative reductions in the sum of squares
-  are at most 0.000000
+  are at most 0.000000 and the relative error between two consecutive iterates is at 
+  most 0.000000
 Results:
 a	b
 -3.00e-03	-6.72e+00
@@ -88,8 +87,9 @@ polynom derivative coefficients
 5.40e-09x^2	-5.59e-06x^1	
 Linear regression of the log of the derivative : ax+b
 Info about the fit
-optimization success (if flag >0): flag=2
-message:The relative error between two consecutive iterates is at most 0.000000
+optimization success (if flag >0): flag=1
+message:Both actual and predicted relative reductions in the sum of squares
+  are at most 0.000000
 Results:
 a	b
 -3.27e-03	-6.39e+00
@@ -98,6 +98,6 @@ Exponential model : $f-f^{*} = (F-f^{*})(1-\exp(-\frac{p-p^*}{p_0}))$
 p0=-1/a=305.49
 F=0.55
 Evolution of p0 with xR:
-[ 227.15823152  301.40168249  315.26538121  333.88047205  305.49158414]
+[ 227.15822689  301.40168196  315.26538154  333.88047352  305.49158433]
 Evolution of F with xR:
 [ 0.1039463   0.19283322  0.35635894  0.40661451  0.546165  ]
